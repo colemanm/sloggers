@@ -186,7 +186,7 @@ class OmniFocusLogger < Slogger
       # Create a journal entry
       unless output == ''
         options = {}
-        options['content'] = "# OmniFocus Tasks\n\n#{text_completed}#{output}#{tags}"
+        options['content'] = "# OmniFocus - Completed Tasks\n\n#{text_completed}#{output}#{tags}"
         sl = DayOne.new
         sl.to_dayone(options)
       end

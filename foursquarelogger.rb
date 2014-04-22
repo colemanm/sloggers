@@ -14,7 +14,7 @@ default_config = {
   'description' => [
   'foursquare_feed must refer to the address of your personal feed.','Your feed should be available at <https://foursquare.com/feeds/>'],
   'foursquare_feed' => "",
-  'foursquare_tags' => "#checkins"
+  'foursquare_tags' => "#social #checkins"
 }
 $slog.register_plugin({ 'class' => 'FoursquareLogger', 'config' => default_config })
 
@@ -36,7 +36,7 @@ class FoursquareLogger < Slogger
     @log.info("Getting Foursquare checkins")
 
     config['foursquare_tags'] ||= ''
-    @tags = "\n\n(#{config['foursquare_tags']})\n" unless config['foursquare_tags'] == ''
+    @tags = "\n\n#{config['foursquare_tags']}\n" unless config['foursquare_tags'] == ''
     @debug = config['debug'] || false
 
     entrytext = ''
